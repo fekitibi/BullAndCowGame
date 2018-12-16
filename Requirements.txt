@@ -1,0 +1,17 @@
+CMD app -> Text input format
+Output -> Text
+Tasks for the user -> Guess words, Start game, End game, Fail game
+Performance limits -> Being able to run the game on any computer what is made after the 2010.
+Assets -> Bull and cow art on the starting scene with some text no sound required
+
+Code to help people to guess right.
+Code to keep track of the tries.
+Code to chech for bulls and cows
+
+Future features:
+	give feedback on every key press
+	have large dictionary of hidden words
+	user selectable word lenght and difficulity
+	checking the user guess is a dictionary isogram
+	time limit for the guesses
+	hint system, spend a turn for a hint
