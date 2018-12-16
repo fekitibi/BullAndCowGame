@@ -9,11 +9,15 @@ string GetGuess();
 // the entry point to our application
 int main() {
 
+	constexpr int NUMBER_OF_TURNS = 5;
+
 	PrintIntro();
 
 	// repeat the guess back to them
-	cout << "Your guess was: " << GetGuess();
-
+	for (int i = 0; i < NUMBER_OF_TURNS; i++) {
+		cout << "Your guess was: " << GetGuess() << endl;
+	}
+	
 
 	cout << endl;
 	return 0;
