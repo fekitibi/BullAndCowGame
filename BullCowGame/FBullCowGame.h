@@ -12,7 +12,7 @@ public:
 
 	void Reset(); // TODO: later could return something
 	bool CheckGuessValidity(std::string Guess); // TODO: later could return something
-
+	// TODO provide method for bul and cow counting and increase try number
 
 private:
 	// see constructor for initialization
