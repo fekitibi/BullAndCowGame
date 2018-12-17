@@ -4,6 +4,8 @@
 class FBullCowGame{
 
 public:
+	FBullCowGame();
+
 	int GetMaxNumberOfTries() const;
 	int GetCurrentTry() const;
 	bool IsGameWon() const;
@@ -13,6 +15,7 @@ public:
 
 
 private:
-	int CurrentTry = 1;
-	int MaxTry = 5;
+	// see constructor for initialization
+	int CurrentTry;
+	int MaxTry;
 };

@@ -39,8 +39,6 @@ void PrintIntro() {
 void PlayGame() {
 
 	int MaxTries = BCGame.GetMaxNumberOfTries();
-	
-	std::cout << MaxTries << std::endl;
 
 	for (int i = 0; i < MaxTries; i++) {
 		std::cout << "Your guess was: " << GetGuess() << std::endl;
