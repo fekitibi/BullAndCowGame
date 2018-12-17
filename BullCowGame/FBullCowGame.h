@@ -12,5 +12,6 @@ public:
 
 
 private:
-
+	int CurrentTry = 1;
+	int MaxTry = 5;
 };
