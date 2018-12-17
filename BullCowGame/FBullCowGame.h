@@ -9,8 +9,6 @@ public:
 	int GetCurrentTry();
 	bool IsGameWon();
 	bool CheckGuessValidity(std::string Guess); // TODO: later could return something
-	int GetNumberOfBulls();
-	int GetNumberOfCows();
 
 
 private:
