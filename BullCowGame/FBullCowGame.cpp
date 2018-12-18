@@ -24,12 +24,25 @@ bool FBullCowGame::CheckGuessValidity(FString Guess){
 }
 
 // recives valid guess, increment try and return bulls and cows
-BullCowCount FBullCowGame::SubmitGuess(FString guess){
+FBullCowCount FBullCowGame::SubmitGuess(FString Guess){
 	// setup return variable
-	BullCowCount BullCowCount;
+	FBullCowCount BullCowCount;
 	//increment try number
 	CurrentTry++;
 	//check all letters to the hidden word
+	for (int32 i = 0; i < HiddenWord.length(); i++){
+		for (int32 j = 0; j < HiddenWord.length(); j++){
+			if (Guess[i] == HiddenWord[i]) {
+				if(i == j){
+					BullCowCount.Bulls++;
+				}
+				else{
+					BullCowCount.Cows++;
+				}
+				
+			}
+		}
+	}
 	//return bulls and cows
 	return BullCowCount;
 }
