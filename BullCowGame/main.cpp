@@ -34,10 +34,8 @@ int main() {
 // introduce the game
 void PrintIntro() {
 
-	constexpr int32 WORD_LENGTH = 5;
-
 	std::cout << "Welcome to Bulls and Cows game" << std::endl;
-	std::cout << "Could you guess the " << WORD_LENGTH << " length isogram?" << std::endl;
+	std::cout << "Could you guess the " << BCGame.GetHiddenWordLength() << " length isogram?" << std::endl;
 
 	return;
 }
