@@ -1,10 +1,17 @@
+/* This is a console executable, that make use of BullCow class.
+This acts as the view in the MVC pattern, FBullCowGame class has the game logic.
+*/
+
 #include <iostream>
 #include <string>
 #include "FBullCowGame.h"
 
+using FText = std::string;
+using int32 = int;
+
 void PrintIntro();
 void PlayGame();
-std::string GetGuess();
+FText GetGuess();
 bool AskToPlayAgain();
 
 FBullCowGame BCGame;
@@ -27,7 +34,7 @@ int main() {
 // introduce the game
 void PrintIntro() {
 
-	constexpr int WORD_LENGTH = 5;
+	constexpr int32 WORD_LENGTH = 5;
 
 	std::cout << "Welcome to Bulls and Cows game" << std::endl;
 	std::cout << "Could you guess the " << WORD_LENGTH << " length isogram?" << std::endl;
@@ -38,10 +45,10 @@ void PrintIntro() {
 // repeat the guess back to the player
 void PlayGame() {
 
-	int MaxTries = BCGame.GetMaxNumberOfTries();
+	int32 MaxTries = BCGame.GetMaxNumberOfTries();
 
 	// TODO in the future switch to while loop
-	for (int i = 0; i < MaxTries; i++) {
+	for (int32 i = 0; i < MaxTries; i++) {
 		std::cout << "Your guess was: " << GetGuess() << std::endl; // TODO check for valid guess
 		// TODO submit valid guess for the game
 		// TODO print bulls and cows
@@ -51,12 +58,12 @@ void PlayGame() {
 }
 
 // get a guess from the player
-std::string GetGuess() {
+FText GetGuess() {
 	
-	int CurrentTry = BCGame.GetCurrentTry();
+	int32 CurrentTry = BCGame.GetCurrentTry();
 
 	std::cout << "Your number of tries: " << CurrentTry << " Enter your guess: ";
-	std::string Guess = "";
+	FText Guess = "";
 	getline(std::cin, Guess);
 
 	return Guess;
@@ -64,7 +71,7 @@ std::string GetGuess() {
 
 bool AskToPlayAgain(){
 
-	std::string Response = "";
+	FText Response = "";
 	
 	std::cout << "Do you want to play again?(y/n)";
 	getline(std::cin, Response);
