@@ -32,7 +32,7 @@ FBullCowCount FBullCowGame::SubmitGuess(FString Guess){
 	//check all letters to the hidden word
 	for (int32 i = 0; i < HiddenWord.length(); i++){
 		for (int32 j = 0; j < HiddenWord.length(); j++){
-			if (Guess[i] == HiddenWord[i]) {
+			if (Guess[j] == HiddenWord[i]) {
 				if(i == j){
 					BullCowCount.Bulls++;
 				}
