@@ -10,8 +10,19 @@ bool FBullCowGame::IsGameWon() const{
 	return false;
 }
 
-EWordStatus FBullCowGame::CheckGuessValidity(FString Guess) const{
-	return EWordStatus::OK; //TODO make actual error checking
+EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const{
+	if (false) {
+		return EGuessStatus::Not_Isogram;
+	}
+	else if(false){
+		return EGuessStatus::Not_Lovercase;
+	}
+	else if (Guess.length() < GetHiddenWordLength()) {
+		return EGuessStatus::Wrong_Length;
+	}
+	else{
+		return EGuessStatus::OK;
+	}
 }
 
 void FBullCowGame::Reset() {
