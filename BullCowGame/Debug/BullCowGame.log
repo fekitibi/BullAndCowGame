@@ -1,6 +1,2 @@
-﻿  FBullCowGame.cpp
-d:\c++\section_02\bullcowgame\fbullcowgame.cpp(37): warning C4018: '<': signed/unsigned mismatch
-d:\c++\section_02\bullcowgame\fbullcowgame.cpp(38): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
-  Generating Code...
+﻿  main.cpp
   BullCowGame.vcxproj -> D:\C++\Section_02\Debug\BullCowGame.exe
