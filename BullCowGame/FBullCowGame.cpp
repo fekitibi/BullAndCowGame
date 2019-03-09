@@ -5,28 +5,28 @@
 
 #define TMap std::map // Override the calling of the map just to be more close to the Unreal one
 
-FBullCowGame::FBullCowGame(){ Reset(-1); }
+FBullCowGame::FBullCowGame() { Reset(-1); }
 
 int32 FBullCowGame::GetCurrentTry() const { return CurrentTry; }
-int32 FBullCowGame::GetHiddenWordLength() const{ return HiddenWord.length(); }
-bool FBullCowGame::IsGameWon() const{ return bIsGameWon; }
+int32 FBullCowGame::GetHiddenWordLength() const { return HiddenWord.length(); }
+bool FBullCowGame::IsGameWon() const { return bIsGameWon; }
 
-int32 FBullCowGame::GetMaxNumberOfTries() const { 
+int32 FBullCowGame::GetMaxNumberOfTries() const {
 	TMap<int32, int32> MaxTriesFromWordLength{ {2, 4}, {3, 7}, {4, 11},{5, 15}, {6, 17} };
 	return MaxTriesFromWordLength[GetHiddenWordLength()];
 }
 
-EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const{
+EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const {
 	if (!IsIsogram(Guess)) { // If the guess isnt an isogram
 		return EGuessStatus::Not_Isogram;
 	}
-	else if(!IsLowercase(Guess)){ // If the guess isnt all lovercase 
+	else if (!IsLowercase(Guess)) { // If the guess isnt all lovercase 
 		return EGuessStatus::Not_Lovercase;
 	}
 	else if (Guess.length() < GetHiddenWordLength()) {
 		return EGuessStatus::Wrong_Length;
 	}
-	else{
+	else {
 		return EGuessStatus::OK;
 	}
 }
@@ -41,28 +41,28 @@ void FBullCowGame::Reset(int32 NumberOfLetters) {
 }
 
 // recives valid guess, increment try and return bulls and cows
-FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess){
+FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess) {
 	FBullCowCount BullCowCount;
 	CurrentTry++;
 	//check all letters to the hidden word
-	for (int32 i = 0; i < HiddenWord.length(); i++){
-		for (int32 j = 0; j < Guess.length(); j++){
+	for (int32 i = 0; i < HiddenWord.length(); i++) {
+		for (int32 j = 0; j < Guess.length(); j++) {
 			if (Guess[j] == HiddenWord[i]) {
-				if(i == j){
+				if (i == j) {
 					BullCowCount.Bulls++;
 				}
-				else{
+				else {
 					BullCowCount.Cows++;
 				}
-				
+
 			}
 		}
 	}
-	
+
 	if (BullCowCount.Bulls == GetHiddenWordLength() && Guess.length() == GetHiddenWordLength()) {
 		bIsGameWon = true;
 	}
-	else{
+	else {
 		bIsGameWon = false;
 	}
 
@@ -81,11 +81,11 @@ bool FBullCowGame::IsIsogram(FString Word) const {
 		if (LetterSeen[Letter]) { // if the letter is in the map
 			return false; // we do not have an isogram
 		}
-		else{
+		else {
 			LetterSeen[Letter] = true; // add the letter to the map as seen	
 		}
-			
-				
+
+
 	}
 
 	return true; // for example in case where /0 is entered
@@ -95,7 +95,7 @@ bool FBullCowGame::IsLowercase(FString Word) const {
 	for (auto Letter : Word) {
 		if (!islower(Letter)) { // if not a lowercase letter
 			return false;
-		} 
+		}
 	}
 	return true;
 }

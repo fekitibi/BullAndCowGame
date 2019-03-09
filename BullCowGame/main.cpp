@@ -67,7 +67,7 @@ void PlayGame() {
 
 	int32 MaxTries = BCGame.GetMaxNumberOfTries();
 
-	while(!BCGame.IsGameWon() && BCGame.GetCurrentTry() <= MaxTries){
+	while (!BCGame.IsGameWon() && BCGame.GetCurrentTry() <= MaxTries) {
 
 		FText Guess = GetValidGuess();
 
@@ -83,10 +83,10 @@ FText GetValidGuess() {
 	EGuessStatus Status = EGuessStatus::Invalid_Status;
 	FText Guess = "";
 
-	do{
+	do {
 		int32 CurrentTry = BCGame.GetCurrentTry();
 
-		std::cout << "\nYour number of tries: " << CurrentTry << " out of " << BCGame.GetMaxNumberOfTries() <<"\n" << "Enter your guess: ";
+		std::cout << "\nYour number of tries: " << CurrentTry << " out of " << BCGame.GetMaxNumberOfTries() << "\n" << "Enter your guess: ";
 		getline(std::cin, Guess);
 
 		Status = BCGame.CheckGuessValidity(Guess);
@@ -110,10 +110,10 @@ FText GetValidGuess() {
 	return Guess;
 }
 
-bool AskToPlayAgain(){
+bool AskToPlayAgain() {
 	FText Response = "";
 	bool Continue = false;
-	
+
 	std::cout << "Do you want to play again?(y/n)";
 	getline(std::cin, Response);
 
@@ -132,10 +132,10 @@ void AskLetters() {
 	std::cin.clear();
 
 	switch (Response[0]) {
-	case '2': 
+	case '2':
 		NumberOfLetters = 2;
 		break;
-	case '3': 
+	case '3':
 		NumberOfLetters = 3;
 		break;
 	case '4':

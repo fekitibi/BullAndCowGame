@@ -22,7 +22,7 @@ enum class EGuessStatus
 	Not_Lovercase
 };
 
-class FBullCowGame{
+class FBullCowGame {
 
 public:
 	FBullCowGame();
@@ -34,7 +34,7 @@ public:
 	EGuessStatus CheckGuessValidity(FString Guess) const;
 
 
-	void Reset(int32 NumberOfLetters); 
+	void Reset(int32 NumberOfLetters);
 	FBullCowCount SubmitValidGuess(FString Guess);
 
 private:
