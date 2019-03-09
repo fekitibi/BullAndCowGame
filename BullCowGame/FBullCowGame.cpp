@@ -5,7 +5,7 @@
 
 #define TMap std::map // Override the calling of the map just to be more close to the Unreal one
 
-FBullCowGame::FBullCowGame() { Reset(-1); }
+FBullCowGame::FBullCowGame() { Reset(); }
 
 int32 FBullCowGame::GetCurrentTry() const { return CurrentTry; }
 int32 FBullCowGame::GetHiddenWordLength() const { return HiddenWord.length(); }
@@ -31,12 +31,12 @@ EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const {
 	}
 }
 
-void FBullCowGame::Reset(int32 NumberOfLetters) {
+void FBullCowGame::Reset() {
 
 	TMap<int32, FString> FromWordSelect{ {2, "ab"}, {3, "alu"}, {4, "moas"}, {5, "plato"}, {6, "planet"} };
 
 	bIsGameWon = false;
-	HiddenWord = FromWordSelect[NumberOfLetters];
+	HiddenWord = FromWordSelect[HiddenWordDifficulity];
 	CurrentTry = 1;
 }
 
@@ -98,4 +98,8 @@ bool FBullCowGame::IsLowercase(FString Word) const {
 		}
 	}
 	return true;
+}
+
+void FBullCowGame::SetHiddenWordDifficulity(int32 Length) {
+	HiddenWordDifficulity = Length;
 }

@@ -34,12 +34,14 @@ public:
 	EGuessStatus CheckGuessValidity(FString Guess) const;
 
 
-	void Reset(int32 NumberOfLetters);
+	void Reset();
+	void SetHiddenWordDifficulity(int32 Length);
 	FBullCowCount SubmitValidGuess(FString Guess);
 
 private:
 	// see constructor for initialization
 	int32 CurrentTry;
+	int32 HiddenWordDifficulity;
 	FString HiddenWord;
 	bool bIsGameWon;
 

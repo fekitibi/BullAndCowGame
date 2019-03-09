@@ -17,13 +17,12 @@ bool AskToPlayAgain();
 void AskLetters();
 
 FBullCowGame BCGame;
-int32 NumberOfLetters = -1;
 
 // the entry point to our application
 int main() {
 	AskLetters();// To initialize NumberOfLetters with a valid number
 	do {
-		BCGame.Reset(NumberOfLetters);
+		BCGame.Reset();
 		PrintIntro();
 		PlayGame();
 	} while (AskToPlayAgain());
@@ -133,22 +132,22 @@ void AskLetters() {
 
 	switch (Response[0]) {
 	case '2':
-		NumberOfLetters = 2;
+		BCGame.SetHiddenWordDifficulity(2);
 		break;
 	case '3':
-		NumberOfLetters = 3;
+		BCGame.SetHiddenWordDifficulity(3);
 		break;
 	case '4':
-		NumberOfLetters = 4;
+		BCGame.SetHiddenWordDifficulity(4);
 		break;
 	case '5':
-		NumberOfLetters = 5;
+		BCGame.SetHiddenWordDifficulity(5);
 		break;
 	case '6':
-		NumberOfLetters = 6;
+		BCGame.SetHiddenWordDifficulity(6);
 		break;
 	default:
-		NumberOfLetters = -1;
+		BCGame.SetHiddenWordDifficulity(-1);
 		break;
 	}
 }
