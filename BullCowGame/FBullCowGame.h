@@ -1,3 +1,6 @@
+/*
+Class which contains the game logic
+*/
 #pragma once
 #include <string>
 
@@ -31,14 +34,15 @@ public:
 	EGuessStatus CheckGuessValidity(FString Guess) const;
 
 
-	void Reset(); // TODO: later could return something
-	//bull and cow counting and increase try number method assuming valid guess
+	void Reset(int32 NumberOfLetters); 
 	FBullCowCount SubmitValidGuess(FString Guess);
 
 private:
 	// see constructor for initialization
 	int32 CurrentTry;
-	int32 MaxTry;
 	FString HiddenWord;
 	bool bIsGameWon;
+
+	bool IsIsogram(FString Word) const;
+	bool IsLowercase(FString Word) const;
 };
